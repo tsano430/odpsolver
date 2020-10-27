@@ -1,13 +1,8 @@
 #! /usr/bin/env python
 # coding: utf-8
-
-################################################################
-# file name: find_regular_graph_aspl.py
+# file name: odpsolver.py
 # Author: Takehiro Sano
-# Affiliation: Okayama University
-# Mail: sano@momo.cs.okayama-u.ac.jp
-# Reference: XXX: 林君の国際会議論文のbibtexを書く
-################################################################
+# Reference: 
 
 
 import sys
