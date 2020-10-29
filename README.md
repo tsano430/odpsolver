@@ -7,7 +7,7 @@ odpsolver is a genetic algorithm [1] for tackling the problem.
 Usage
 -----
 
-Given the order 100 and degree 3, run the following command: 
+Given the order 16 and degree 4, run the following command: 
 ```
 $ Python odpsolver.py 16 4
 Diameter: 3.000
