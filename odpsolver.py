@@ -143,7 +143,9 @@ def exec_crossover(pop, n_node, n_degree, n_ind, prob_c):
     """
     cxpoints = [np.random.choice(np.arange(n_node), 2, replace=False) for _ in range(n_ind//2)]
     probs = [np.random.rand() for _ in range(n_ind//2)]
-    joblib.Parallel(n_jobs=-2, verbose=0)([joblib.delayed(exec_crossover_once)(ind1, ind2, cxpoint, n_degree) for cxpoint, prob, ind1, ind2 in zip(cxpoints, probs, pop[::2], pop[1::2]) if prob < prob_c])
+    joblib.Parallel(n_jobs=-2, verbose=0)(
+        [joblib.delayed(exec_crossover_once)(ind1, ind2, cxpoint, n_degree) 
+         for cxpoint, prob, ind1, ind2 in zip(cxpoints, probs, pop[::2], pop[1::2]) if prob < prob_c])
 
 
 def keep_regularity(G, n_degree, random_state=None):
@@ -286,7 +288,8 @@ def odpsolver(n_node, n_degree, n_ind, prob_c, prob_m, n_gen, tournsize, random_
 
         # update next population
         pop = offspring
-        tmp = joblib.Parallel(n_jobs=-2, verbose=0)([joblib.delayed( lambda x, y: (x, calc_fitness(y)) )(idx, ind.G) for idx, ind in enumerate(pop) if ind.fitness is None])
+        tmp = joblib.Parallel(n_jobs=-2, verbose=0)(
+            [joblib.delayed( lambda x, y: (x, calc_fitness(y)) )(idx, ind.G) for idx, ind in enumerate(pop) if ind.fitness is None])
         for i, score in tmp:
             pop[i].fitness = score
         best_ind = min(pop, key=attrgetter('fitness'))
@@ -305,7 +308,8 @@ def optuna_objective(n_node, n_degree, n_ind, n_gen, random_state=None, verbose=
         prob_c = trial.suggest_discrete_uniform("prob_c", 0.4, 0.8, 0.05)
         prob_m = trial.suggest_discrete_uniform("prob_m", 0.1, 0.3, 0.05)
         tournsize = trial.suggest_int('r', 2, 5) 
-        return odpsolver(n_node=n_node, n_degree=n_degree, n_ind=n_ind, prob_c=prob_c, prob_m=prob_m, n_gen=n_gen, tournsize=tournsize, random_state=random_state, verbose=verbose).fitness
+        return odpsolver(n_node=n_node, n_degree=n_degree, n_ind=n_ind, prob_c=prob_c, prob_m=prob_m, 
+                         n_gen=n_gen, tournsize=tournsize, random_state=random_state, verbose=verbose).fitness
 
     return _optuna_objective
 
@@ -332,7 +336,8 @@ def main():
     pm = study.best_params['prob_m']
     r = study.best_params['r'] # tournament size
 
-    ret_ind = odpsolver(n_node=n, n_degree=k, n_ind=m, prob_c=pc, prob_m=pm, n_gen=tmax, tournsize=r, random_state=random_state, verbose=verbose)
+    ret_ind = odpsolver(n_node=n, n_degree=k, n_ind=m, prob_c=pc, prob_m=pm, n_gen=tmax, 
+                        tournsize=r, random_state=random_state, verbose=verbose)
 
     # output
     print('Diameter: {:.3f}'.format(nx.diameter(ret_ind.G)))
