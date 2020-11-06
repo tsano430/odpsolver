@@ -13,7 +13,7 @@ $ Python odpsolver.py 16 4
 Diameter: 3.000
 ASPL: 1.750
 ```
-As a result, `regular-graph-o100-d3.gml` is obtained.
+As a result, `regular-graph-o16-d4.gml` is obtained.
 
 Dependency
 ----------
