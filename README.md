@@ -1,5 +1,4 @@
-odpsolver
----------
+# odpsolver
 
 The [order/degree problem][problem] is the problem of finding a graph that has smallest diameter and Average Shortest Path Length (ASPL) for a given order and degree. 
 odpsolver is a genetic algorithm [1] for tackling the problem. 
@@ -13,7 +12,7 @@ $ Python odpsolver.py 16 4
 Diameter: 3.000
 ASPL: 1.750
 ```
-As a result, `regular-graph-o16-d4.gml` is obtained.
+As a result, `regular-graph-o16-d4.gml` is generated.
 
 Dependency
 ----------
