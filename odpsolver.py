@@ -342,10 +342,9 @@ def main():
     # output
     print('Diameter: {:.3f}'.format(nx.diameter(ret_ind.G)))
     print('ASPL: {:.3f}'.format(ret_ind.fitness))
-    f = open('regular-graph-o{}-d{}.gml'.format(n, k), 'wb')
-    nx.write_gml(ret_ind.G, f)
-    f.close()
-
+    with open('regular-graph-o{}-d{}.gml'.format(n, k), 'wb') as f:
+        nx.write_gml(ret_ind.G, f)
+        
     
 if __name__ == "__main__":
     main()
