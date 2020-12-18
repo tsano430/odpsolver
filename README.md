@@ -27,6 +27,6 @@ Dependency
 Reference
 ---------
 
-[1] Reiji Hayashi, Tsuyoshi Migita and Norikazu Takahashi, "A genetic algorithm for finding regular graphs with minimum average shortest path length," Proceedings of the 2020 IEEE Symposium Series on Computational Intelligence, pp.-, 2020.
+[1] Reiji Hayashi, Tsuyoshi Migita and Norikazu Takahashi, "A genetic algorithm for finding regular graphs with minimum average shortest path length," Proceedings of the 2020 IEEE Symposium Series on Computational Intelligence, 2020.
 
 [problem]: http://research.nii.ac.jp/graphgolf/problem.html
