@@ -14,8 +14,8 @@ ASPL: 1.750
 ```
 As a result, `regular-graph-o16-d4.gml` is generated.
 
-Dependency
-----------
+Dependencies
+------------
 
 - numpy
 - scipy
