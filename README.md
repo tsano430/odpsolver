@@ -1,7 +1,7 @@
 # odpsolver
 
 The [order/degree problem][problem] is the problem of finding a graph that has smallest diameter and Average Shortest Path Length (ASPL) for a given order and degree. 
-odpsolver is a genetic algorithm [1] for tackling the problem. 
+odpsolver is [a genetic algorithm](https://ieeexplore.ieee.org/document/9308205) [1] for tackling the problem. 
 
 Usage
 -----
